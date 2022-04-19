@@ -10,10 +10,53 @@
 <body>
     <h1>FAROL DO MAYCOM</h1>
     <div id="container">
-        <div class="status" id="vermelho"></div>
-        <div class="status" id="amarelo"></div>
-        <div class="status" id="verde"></div>
+        <div class="status cor" id="vermelho" ><h3></h3></div>
+        <div class="status cor" id="amarelo"><h3></h3></div>
+        <div class="status cor" id="verde"><h3></h3></div>
     </div>
-
+    <button onclick="comecar()">Inicial</button>
+    <button onclick="manutencao()"></button>
+    <script>
+        var cont = 0
+        var contAm = 0
+        var contVer = 0
+        
+        var comecar = function (){
+            var timer = setInterval(function(){
+                cont += 1
+                if (cont <= 15){
+                    document.getElementById("vermelho").innerHTML = cont
+                    document.getElementById("vermelho").classList.remove("cor")
+                    document.getElementById("vermelho").classList.add("vermelhoAll")
+                }else if (cont > 15 && cont <= 20){
+                    contAm += 1
+                    console.log(cont)
+                    console.log("amarelo")
+                    document.getElementById("amarelo").innerHTML = contAm
+                    document.getElementById("vermelho").innerHTML = " "
+                    document.getElementById("vermelho").classList.remove("vermelhoAll")
+                    document.getElementById("vermelho").classList.add("cor")
+                    document.getElementById("amarelo").classList.remove("cor")
+                    document.getElementById("amarelo").classList.add("amareloAll")
+                }else if (cont > 20 && cont < 25){
+                    contVer += 1
+                    console.log(cont)
+                    console.log("verde")
+                    document.getElementById("verde").innerHTML = contVer
+                    document.getElementById("amarelo").innerHTML = " "
+                    document.getElementById("amarelo").classList.remove("amareloAll")
+                    document.getElementById("amarelo").classList.add("cor")
+                    document.getElementById("verde").classList.remove("cor")
+                    document.getElementById("verde").classList.add("verdeAll")
+                }
+            }, 1000)
+        }  
+        
+        var manutencao = function(){
+            var timer = setInterval(function(){
+                
+            })
+        }
+    </script>
 </body>
 </html>
